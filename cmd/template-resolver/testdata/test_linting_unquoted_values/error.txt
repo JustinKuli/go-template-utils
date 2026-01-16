@@ -1,11 +1,11 @@
 Found linting issues:
-line 21: unquotedTemplateValues: template value for key should be single-quoted:
+line 21: unquotedTemplateValues: templates should be single-quoted:
 	name: {{ fromConfigMap "default" "cool-car" "model" }}
-line 23: unquotedTemplateValues: template value for key should be single-quoted:
+line 23: unquotedTemplateValues: templates should be single-quoted:
 	unquotedKey: {{ fromConfigMap "default" "cool-car" "model" }}
-line 26: unquotedTemplateValues: array item template should be single-quoted:
+line 26: unquotedTemplateValues: templates for array items should be single-quoted:
 	- {{ (lookup "v1" "ConfigMap" "policies" "coolest-car").data.model }}
-line 28: unquotedTemplateValues: template value for key should be single-quoted:
+line 28: unquotedTemplateValues: templates should be single-quoted:
 	- host: {{ fromConfigMap "default" "cool-car" "model" }}
 line 29: mismatchedDelimiters: mismatched hub and managed cluster delimiters:
 	- port: '{{hub .ManagedClusterName }}'

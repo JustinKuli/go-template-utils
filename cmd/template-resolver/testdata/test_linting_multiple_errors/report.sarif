@@ -1,0 +1,248 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "go-template-utils-linter",
+          "informationUri": "https://github.com/stolostron/go-template-utils",
+          "rules": [
+            {
+              "id": "GTUL001",
+              "name": "trailingWhitespace",
+              "shortDescription": {
+                "text": "Lines should not have trailing whitespace."
+              }
+            },
+            {
+              "id": "GTUL002",
+              "name": "mismatchedDelimiters",
+              "shortDescription": {
+                "text": "Template delimiters must be properly paired."
+              },
+              "fullDescription": {
+                "text": "Template start delimiters (`{{` or `{{hub`) must be paired with a corresponding closing delimiter (`}}` or `hub}}`). Otherwise, the template is invalid.",
+                "markdown": "Template start delimiters (`{{` or `{{hub`) must be paired with a corresponding closing delimiter (`}}` or `hub}}`). Otherwise, the template is invalid."
+              }
+            },
+            {
+              "id": "GTUL003",
+              "name": "unquotedTemplateValues",
+              "shortDescription": {
+                "text": "Template expressions should be single-quoted."
+              },
+              "fullDescription": {
+                "text": "Single-quote wrapping around template expressions in YAML will ensure that the templates are properly interpreted and not interfere with the rest of the structure.",
+                "markdown": "Single-quote wrapping around template expressions in YAML will ensure that the templates are properly interpreted and not interfere with the rest of the structure."
+              }
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml"
+          }
+        }
+      ],
+      "results": [
+        {
+          "level": "warning",
+          "message": {
+            "text": "Trailing whitespace detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ],
+          "ruleId": "GTUL001",
+          "ruleIndex": 0
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Trailing whitespace detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "ruleId": "GTUL001",
+          "ruleIndex": 0
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Templates should be single-quoted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 25
+                }
+              }
+            }
+          ],
+          "ruleId": "GTUL003",
+          "ruleIndex": 2
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Trailing whitespace detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 23
+                }
+              }
+            }
+          ],
+          "ruleId": "GTUL001",
+          "ruleIndex": 0
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Templates should be single-quoted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 29
+                }
+              }
+            }
+          ],
+          "ruleId": "GTUL003",
+          "ruleIndex": 2
+        },
+        {
+          "level": "error",
+          "message": {
+            "text": "Unmatched opening delimiter '{{'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 30
+                }
+              }
+            }
+          ],
+          "ruleId": "GTUL002",
+          "ruleIndex": 1
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Trailing whitespace detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 26
+                }
+              }
+            }
+          ],
+          "ruleId": "GTUL001",
+          "ruleIndex": 0
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Templates for array items should be single-quoted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 21
+                }
+              }
+            }
+          ],
+          "ruleId": "GTUL003",
+          "ruleIndex": 2
+        },
+        {
+          "level": "error",
+          "message": {
+            "text": "Unmatched opening delimiter '{{'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cmd/template-resolver/testdata/test_linting_multiple_errors/input.yaml",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 34
+                }
+              }
+            }
+          ],
+          "ruleId": "GTUL002",
+          "ruleIndex": 1
+        }
+      ]
+    }
+  ]
+}
